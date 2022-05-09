@@ -3,20 +3,27 @@ let pares ="";
 function ciclofor()
 {
     let numero = parseInt(document.formulario.caja.value);
-    for(i=1; i<=numero;i++)
+    if(Number.isInteger(numero))
     {
-        if(i%2==0)
+        for(i=1; i<=numero;i++)
         {
-            if (i!=numero)
-           {
-            pares=pares + i + ",";
-           }
-           else
-           {
-            pares=pares + i;
-           }
+            if(i%2==0)
+            {
+                if(i!=numero)
+                {
+                    pares = pares + i + ", ";
+                }
+                else
+                {
+                    pares = pares + i;
+                }
+            }
         }
+        document.formulario.pares.value = pares;
+        pares = "";
     }
-    document.formulario.pares.value = pares;
-    pares = "";
+    else
+    {
+        alert("Debe digitar un numero entero")
+    }
 }
